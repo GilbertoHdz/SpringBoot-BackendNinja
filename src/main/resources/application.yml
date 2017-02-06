@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: 
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update #Al arrancar el Server, comprobara que las Entity correspondan con las TBL
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
