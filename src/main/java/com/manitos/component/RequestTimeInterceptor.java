@@ -8,11 +8,15 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+/** @author ZubZero
+ * Description: Handler que captura el tiempo de request y response.
+ */
 
 @Component("requestTimeInterceptor")
 public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 	private static final Log LOG = LogFactory.getLog(RequestTimeInterceptor.class);
 	
+	//PRIMERO
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -21,6 +25,7 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 		return true;
 	}
 	
+	//SEGUNDO
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {

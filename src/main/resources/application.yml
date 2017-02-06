@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mydb
+    url: jdbc:mysql://localhost:3306/mydb?useSSL=false #aviso de seguridad SSL desactivado, para evitar logs
     username: root
     password: 
   jpa:
