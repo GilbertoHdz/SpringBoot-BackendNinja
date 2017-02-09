@@ -23,7 +23,7 @@ public class User {
 	private String password;
 	
 	@Column(name= "enabled", nullable = false)
-	private String enabled;
+	private boolean enabled;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<UserRole> userRole = new HashSet<UserRole>();
@@ -33,14 +33,14 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String username, String password, String enabled) {
+	public User(String username, String password, boolean enabled) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
 	}
 
-	public User(String username, String password, String enabled, Set<UserRole> userRole) {
+	public User(String username, String password, boolean enabled, Set<UserRole> userRole) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -64,11 +64,11 @@ public class User {
 		this.password = password;
 	}
 
-	public String getEnabled() {
+	public boolean getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(String enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
