@@ -61,5 +61,12 @@ public class ContactModel {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "ContactModel [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", telephone="
+				+ telephone + ", city=" + city + "]";
+	}
+	
 	
 }

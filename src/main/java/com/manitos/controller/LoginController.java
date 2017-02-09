@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.manitos.constant.ViewConstant;
 import com.manitos.model.UserCredencial;
 
 @Controller
@@ -33,7 +34,7 @@ public class LoginController {
 		model.addAttribute("logout", logout);
 		LOG.info("Redirect to login view");
 		
-		return "login";
+		return ViewConstant.LOGIN;
 	}
 	
 	@PostMapping("/logincheck")
@@ -41,7 +42,7 @@ public class LoginController {
 		LOG.info("METHOD: loginCheck()  -- Params: "+ userCredential.toString());
 		if(userCredential.getUsername().equals("user") && userCredential.getPassword().equals("user")){
 			LOG.info("Redirect to contacts view");
-			return "contacts";
+			return "redirect:/contacts/showcontacts";
 		}
 		
 		LOG.info("Redirect to login?error");
