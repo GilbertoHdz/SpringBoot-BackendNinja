@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.manitos.constant.ViewConstant;
-import com.manitos.entity.Contact;
 import com.manitos.model.ContactModel;
 import com.manitos.service.impl.ContactServiceImpl;
 
 @Controller
+//@PreAuthorize("hasRole('ROLE_USER')") //Nivel Clase, tambn pueden ser añadidos en los Services
 @RequestMapping("/contacts")
 public class ContactController {
 	
@@ -33,6 +34,7 @@ public class ContactController {
 		return "redirect:/contacts/showcontacts";
 	}
 	
+	@PreAuthorize("hasRole('ROLE_USER')") //Nivel Metodo
 	@GetMapping("/contactform")
 	private String redirectContactForm(@RequestParam(name="id", required=false) int id,
 			Model model){
